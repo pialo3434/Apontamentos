@@ -21,43 +21,84 @@ body {
 }
 
 #quadroTarefas {
-  min-height: 500px;
-  border-radius: 20px;
-  background-color: rgb(100, 100, 100);
-  border: 2px solid rgb(255, 0, 0); /* red border */
-}
+    min-height: 500px;
+    border-radius: 20px;
+    background-color: #818181;
+    border: 2px solid rgb(255, 0, 0); /* red border */
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
 
 .inputContainer {
-    display: flex;
-    align-items: center;
-    background-color: #818181;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 20px 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: #818181;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px 0;
 }
 
 .inputContainer input {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    font-size: 18px;
-    background-color: rgb(94, 94, 94);
-    color: rgb(170, 170, 170);
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 18px;
+  background-color: rgb(94, 94, 94);
+  color: rgb(170, 170, 170);
 }
 
 .inputContainer input:focus {
-    border: none;
-    color: white;
+  border: none;
+  color: white;
 }
 
 .inputContainer button {
-    background-color: #b42c2c;
-    color: rgb(255, 255, 255);
-    padding: 10px 20px;
-    border: none;
+  background-color: #b42c2c;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.task-checkbox {
+    /* give the checkbox a width and height */
+    width: 20px;
+    height: 20px;
+    /* position the checkbox to the left */
+    float: left;
+  }
+  
+  .task-label {
+    /* give the label some padding and margin */
+    padding: 10px 10px;
+    margin: 10px;
+    /* add a border and border-radius */
+    border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
+    /* display the label as an inline-block element */
+    display: inline-block;
+  }
+
+/* when the checkbox is checked */
+.task-checkbox:checked + .task-label {
+  /* change the background color */
+  background-color: #ec1010;
+}
+
+.task-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#ok-b {
+    margin-right: 10px;
+    margin-left: 10px;
 }
