@@ -27,14 +27,15 @@ function submit() {
     taskCheckbox.type = "checkbox";
     taskLabel.innerHTML = input.value;
 
-    //create a new container element
+    //novo container para adicionar os outros 2
     let taskContainer = document.createElement("div");
     taskContainer.classList.add("task-container");
 
-    //append taskCheckbox and taskLabel to the container
+    //dar append para o task container 
     taskContainer.appendChild(taskCheckbox);
     taskContainer.appendChild(taskLabel);
 
+    //dar append to task container para o quadro de tarefas 
     quadro.appendChild(taskContainer);
 
     document.getElementById("inputID").value = "";
