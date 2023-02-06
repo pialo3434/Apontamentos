@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <table id="calculadora">
+        <tr id="inputTr" style="background-color: red;">
+            <td class="tdInput" style="background-color: yellow;">
+              <div style="width: 100%; text-align: right; margin: 0 auto; padding: 0; background-color: rgb(15, 154, 209);">
+                <input
+                  id="overText"
+                  type="text"
+                  name="overTxt"
+                  placeholder="1+4"
+                  style="border: none; outline: none; text-align: right; width: 100%;"
+                  disabled
+                />
+                <input
+                  id="calcText"
+                  type="text"
+                  name="calc"
+                  placeholder="0"
+                  style="border: none; outline: none; text-align: right; width: 100%;"
+                  disabled
+                />
+              </div>
+            </td>
+          </tr>
+    
+      <tr>
+        <td class="special1">AC</td>
+        <td class="special1">/</td>
+        <td class="special1">X</td>
+        <td class="special2" id="delete">DEL</td>
+      </tr>
+      <tr>
+        <td class="btn_num">7</td>
+        <td class="btn_num">8</td>
+        <td class="btn_num">9</td>
+        <td class="special2">-</td>
+      </tr>
+      <tr>
+        <td class="btn_num">4</td>
+        <td class="btn_num">5</td>
+        <td class="btn_num">6</td>
+        <td class="special2" id="plus">+</td>
+      </tr>
+      <tr>
+        <td class="btn_num">3</td>
+        <td class="btn_num">2</td>
+        <td class="btn_num">1</td>
+        <td class="special2" id="equalBtn" rowspan="2">=</td>
+      </tr>
+      <tr>
+        <td class="btn">%</td>
+        <td class="btn_num">0</td>
+        <td class="btn">.</td>
+      </tr>
+    </table>
+
+    <script src="index.js"></script>
+  </body>
+</html>
