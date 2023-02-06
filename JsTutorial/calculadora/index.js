@@ -1,51 +1,94 @@
-let inputOver = document.querySelector("#calculadora #overText"); 
+let inputOver = document.querySelector("#calculadora #overText");
 let inputBellow = document.querySelector("#calculadora #calcText");
 const equalButton = document.getElementById("equalBtn");
 const numButtons = document.querySelectorAll(".btn_num");
 const plus = document.getElementById("plus");
 const deletee = document.getElementById("delete");
+const allClearr = document.getElementById("allClear");
+const dott = document.getElementById("dot");
+const dividee = document.getElementById("divide");
+const subtractt = document.getElementById("minus");
+const multiplyy = document.getElementById("multiply");
 
-// Listen for the click event on the equal button
-equalButton.addEventListener("click", function() {
-    // Split the input string into an array of numbers and operators
-    let inputArray = inputOver.value.split(/(\+)/g);
-  
-    // Perform the addition calculation
-    let result = 0;
-    for (let i = 0; i < inputArray.length; i++) {
-      if (inputArray[i] === "+") {
-        let parsedValue = parseInt(inputArray[i + 1]);
-        if (!isNaN(parsedValue)) {
-          result += parsedValue;
-        } else {
-          inputBellow.value = "ERROR!";
-          return;
+equalButton.addEventListener("click", function () {
+  if (!inputOver.value) return;
+
+  // Split the input string into an array of numbers and operators
+  let inputArray = inputOver.value.split(/([\+-\*\/])/g);
+
+  // Perform the calculation
+  let result = 0;
+  let operator = "+";
+  for (let i = 1; i < inputArray.length; i++) {
+    if (inputArray[i] === "+") {
+      operator = "+";
+    } else if (inputArray[i] === "-") {
+      operator = "-";
+    } else if (inputArray[i] === "*") {
+      operator = "*";
+    } else if (inputArray[i] === "/") {
+      operator = "/";
+    } else {
+      let parsedValue = parseFloat(inputArray[i]);
+      if (!isNaN(parsedValue)) {
+        switch (operator) {
+          case "+":
+            result += parsedValue;
+            break;
+          case "-":
+            result -= parsedValue;
+            break;
+          case "*":
+            result *= parsedValue;
+            break;
+          case "/":
+            result /= parsedValue;
+            break;
         }
-      } else if (i === 0) {
-        let parsedValue = parseInt(inputArray[i]);
-        if (!isNaN(parsedValue)) {
-          result += parsedValue;
-        } else {
-          inputBellow.value = "ERROR!";
-          return;
-        }
+      } else {
+        inputBellow.value = "ERROR!";
+        return;
       }
     }
-  
-    // Update the input field with the result
-    inputBellow.value = result;
-  });
-  
-  numButtons.forEach(function(button) {
-    button.addEventListener("click", function() {
-      inputOver.value += this.innerHTML;
-    });
-  });
+  }
 
-  plus.addEventListener("click", function() {
+  // Display the result if there's no error
+  if (inputBellow.value !== "ERROR!") {
+    inputBellow.value = result;
+  }
+});
+
+
+numButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
     inputOver.value += this.innerHTML;
   });
+});
 
-  deletee.addEventListener("click", function() {
-    inputOver.value = inputOver.value.slice(0, -1);
-  });
+plus.addEventListener("click", function () {
+  inputOver.value += this.innerHTML;
+});
+
+dott.addEventListener("click", function () {
+  inputOver.value += this.innerHTML;
+});
+
+dividee.addEventListener("click", function () {
+  inputOver.value += this.innerHTML;
+});
+
+subtractt.addEventListener("click", function () {
+  inputOver.value += this.innerHTML;
+});
+
+multiplyy.addEventListener("click", function () {
+  inputOver.value += "*";
+});
+
+deletee.addEventListener("click", function () {
+  inputOver.value = inputOver.value.slice(0, -1);
+});
+
+allClearr.addEventListener("click", function () {
+  inputOver.value = "";
+});
